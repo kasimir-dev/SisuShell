@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: #0d1117;
+    color: #e6edf3;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    padding: 48px 16px 24px;
+    text-align: center;
+}
+
+/* SisuShell */
+header h1 {
+    margin: 0;
+    color: rgb(183, 3, 3);
+    font-size: 48px;
+}
+
+/* "Learn Linux commands... */
+header p {
+    color: #8b949e;
+}
+
+main {
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.terminal {
+    padding: 24px;
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 10px; /* Rounded edges on border */
+}
+
+.terminal h2 {
+    margin-top: 0;
+    color: rgb(183, 3, 3);
+}
