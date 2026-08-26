@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fi">
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>SisuShell</title>
+    </head>
+
+    <body>
+        <header>
+            <h1>SisuShell</h1>
+            <p>Learn Linux commands, one step at a time.</p>
+        </header>
+
+        <main>
+            <section class="terminal">
+
+                <div class="terminal-header">
+                    <h2>Terminaali</h2>
+                </div>
+                
+                <div class="terminal-body">
+                    <div id="terminal-output">
+                        <p>Welcome to SisuShell</p>
+                        <p>Type <code>help</code> to see available commands.</p>
+                    </div>
+
+                    <form id="terminal-form" class="command-line">
+                        <label for="command-input" class="prompt">
+                            student@sisushell:~$
+                        </label>
+
+                        <input
+                            id="command-input"
+                            name="command"
+                            type="text"
+                            autocomplete="off"
+                            spellcheck="false"
+                            autofocus
+                        >
+
+                        <button type="submit">Run</button>
+                    </form>
+                </div>
+                
+            </section>
+        </main>
+    </body>
+</html>

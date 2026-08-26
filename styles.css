@@ -1,0 +1,109 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: #0d1117;
+    color: #e6edf3;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    padding: 48px 16px 24px;
+    text-align: center;
+}
+
+/* SisuShell */
+header h1 {
+    margin: 0;
+    color: rgb(183, 3, 3);
+    font-size: 48px;
+}
+
+/* "Learn Linux commands... */
+header p {
+    color: #8b949e;
+}
+
+main {
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.terminal {
+    overflow: hidden;
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 10px; /* Rounded edges on border */
+}
+
+.terminal-header {
+    padding: 12px 20px;
+    background-color: #21262d;
+    border-bottom: 1px solid #30363d;
+}
+
+.terminal-header h2 {
+    margin: 0;
+    color: rgb(183, 3, 3);
+    font-size: 16px;
+}
+
+.terminal-body {
+    padding: 24px;
+    font-family: Consolas, "Courier New", monospace;
+}
+
+#terminal-output {
+    min-height: 180px;
+}
+
+#terminal-output p {
+    margin: 0 0 8px;
+}
+
+.command-line {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* "student@sisushell...." */
+.prompt {
+    color: rgb(183, 3, 3);
+    white-space: nowrap;
+}
+
+
+/* Text input box */
+#command-input {
+    flex: 1;
+    min-width: 0;
+    padding: 8px;
+    background: transparent;
+    color: #e6edf3;
+    font: inherit;
+    border: none; /* Remove ugly border for text input box */
+    border-bottom: 1px solid #30363d; /* Solid bottom line shadow for text input box*/
+    outline: none;
+}
+
+#command-input:focus {
+    border-bottom-color: rgb(183, 3, 3);
+}
+
+button {
+    padding: 8px 16px;
+    background-color: rgb(183, 3, 3);
+    color: white;
+    border: none;
+    border-radius: 5px; /* Rounded edges for the "Run" button */
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(220, 20, 20);
+}
