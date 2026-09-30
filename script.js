@@ -12,16 +12,26 @@ terminalForm.addEventListener("submit", function (event) {
     }
 
     addOutput(`student@sisushell:~$ ${command}`);
-    
-    if (command ==="help") {
-        addOutput("Available command: help");
-    } else {
-        addOutput(`Command not found: ${command}`);
-    }
+    executeCommand(command);
 
     commandInput.value = "";
     commandInput.focus();
 });
+
+function executeCommand(command) {
+    switch (command) {
+        case "help":
+            addOutput("Available commands: help, clear");
+            break;
+            
+        case "clear":
+            terminalOutput.replaceChildren();
+            break;
+
+        default:
+            addOutput(`Command not found: ${command}`);
+    }
+}
 
 function addOutput(text) {
     const outputLine = document.createElement("p");
