@@ -21,7 +21,11 @@ terminalForm.addEventListener("submit", function (event) {
 function executeCommand(command) {
     switch (command) {
         case "help":
-            addOutput("Available commands: help, clear");
+            addOutput("Available commands: help, pwd, clear");
+            break;
+
+        case "pwd":
+            addOutput("/home/student");
             break;
             
         case "clear":
