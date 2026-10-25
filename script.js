@@ -9,6 +9,11 @@ const homeDirectoryContents = [
     "welcome.txt"
 ];
 
+// Simulated files
+const virtualFiles = {
+    "welcome.txt": "Welcome to SisuShell! Here you can learn Linux commands."
+};
+
 terminalForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
@@ -32,7 +37,7 @@ function executeCommand(input) {
 
     switch (commandName) {
         case "help":
-            addOutput("Available commands: help, pwd, ls, echo, clear");
+            addOutput("Available commands: help, pwd, ls, cat, echo, clear");
             break;
 
         case "pwd":
@@ -41,6 +46,10 @@ function executeCommand(input) {
 
         case "ls":
             addOutput(homeDirectoryContents.join(" "));
+            break;
+
+        case "cat":
+            runCatCommand(commandArguments);
             break;
 
         case "echo":
@@ -54,6 +63,22 @@ function executeCommand(input) {
         default:
             addOutput(`Command not found: ${commandName}`);
     }
+}
+
+function runCatCommand(args) {
+    const fileName = args[0];
+
+    if (!fileName) {
+        addOutput("cat: missing file operand");
+        return;
+    }
+
+    if (virtualFiles[fileName] === undefined) {
+        addOutput(`cat: ${fileName}: No such file or directory`);
+        return;
+    }
+
+    addOutput(virtualFiles[fileName]);
 }
 
 function addOutput(text) {
