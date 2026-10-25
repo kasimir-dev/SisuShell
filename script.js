@@ -37,7 +37,7 @@ function executeCommand(input) {
 
     switch (commandName) {
         case "help":
-            addOutput("Available commands: help, pwd, ls, cat, echo, clear");
+            addOutput("Available commands: help, pwd, ls, mkdir, cat, echo, clear");
             break;
 
         case "pwd":
@@ -46,6 +46,10 @@ function executeCommand(input) {
 
         case "ls":
             addOutput(homeDirectoryContents.join(" "));
+            break;
+
+        case "mkdir":
+            runMkdirCommand(commandArguments);
             break;
 
         case "cat":
@@ -63,6 +67,24 @@ function executeCommand(input) {
         default:
             addOutput(`Command not found: ${commandName}`);
     }
+}
+
+function runMkdirCommand(args) {
+    const directoryName = args[0];
+
+    if (!directoryName) {
+        addOutput("mkdir: missing operand");
+        return;
+    }
+
+    if (homeDirectoryContents.includes(directoryName)) {
+        addOutput(
+            `mkdir: cannot create directory '${directoryName}': File exists`
+        );
+        return;
+    }
+
+    homeDirectoryContents.push(directoryName);
 }
 
 function runCatCommand(args) {
