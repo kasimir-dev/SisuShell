@@ -41,7 +41,7 @@ function executeCommand(input) {
             break;
 
         default:
-            addOutput(`Command not found: ${command}`);
+            addOutput(`Command not found: ${commandName}`);
     }
 }
 
