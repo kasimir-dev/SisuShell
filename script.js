@@ -2,6 +2,13 @@ const terminalForm = document.querySelector("#terminal-form");
 const commandInput = document.querySelector("#command-input");
 const terminalOutput = document.querySelector("#terminal-output");
 
+// Simulated home directory contents
+const homeDirectoryContents = [
+    "documents",
+    "projects",
+    "welcome.txt"
+];
+
 terminalForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
@@ -25,11 +32,15 @@ function executeCommand(input) {
 
     switch (commandName) {
         case "help":
-            addOutput("Available commands: help, pwd, echo, clear");
+            addOutput("Available commands: help, pwd, ls, echo, clear");
             break;
 
         case "pwd":
             addOutput("/home/student");
+            break;
+
+        case "ls":
+            addOutput(homeDirectoryContents.join(" "));
             break;
 
         case "echo":
