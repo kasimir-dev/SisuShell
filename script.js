@@ -37,7 +37,7 @@ function executeCommand(input) {
 
     switch (commandName) {
         case "help":
-            addOutput("Available commands: help, pwd, ls, mkdir, cat, echo, clear");
+            addOutput("Available commands: help, pwd, ls, mkdir, touch, cat, echo, clear");
             break;
 
         case "pwd":
@@ -50,6 +50,10 @@ function executeCommand(input) {
 
         case "mkdir":
             runMkdirCommand(commandArguments);
+            break;
+
+        case "touch":
+            runTouchCommand(commandArguments);
             break;
 
         case "cat":
@@ -85,6 +89,27 @@ function runMkdirCommand(args) {
     }
 
     homeDirectoryContents.push(directoryName);
+}
+
+function runTouchCommand(args) {
+    const fileName = args[0];
+
+    if (!fileName) {
+        addOutput("touch: missing file operand!");
+        return;
+    }
+
+    if (virtualFiles[fileName] !== undefined) {
+        return;
+    }
+
+    if (homeDirectoryContents.includes(fileName)) {
+        addOutput(`touch: cannot touch '${fileName}': Is a directory`);
+        return;
+    }
+
+    homeDirectoryContents.push(fileName);
+    virtualFiles[fileName] = "";
 }
 
 function runCatCommand(args) {
